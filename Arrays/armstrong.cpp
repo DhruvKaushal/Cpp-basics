@@ -13,11 +13,8 @@ int main(){
   if(sum==y){
     flag=1;
   }
-  if(flag==0){
-    cout<<"false";
-  }
-  else{
-    cout<<"true";
+  if(flag==1){
+    cout<<y;
   }
   return 0;
 }
