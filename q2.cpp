@@ -1,34 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
-int larg(int x[], int y[], int z){
-	int j=0;
-	while(x[j]<=y[z]){
-		j++;
-	}
-	return x[j];
-}
+
 int main() {
 	int t;
   cin>>t;
   while(t){
     int n;
     cin>>n;
-    int a[n], b[n];
+    int a[n];
 		for(int i=0;i<n;i++){
 			cin>>a[i];
-			b[i] = a[i];
 		}
-		sort(b,b+n);
-		int maxi = b[n-1];
+		int low=0, mid=0, end=n-1;
+		while(mid<=end){
+			if(a[mid]==0){
+				int temp=a[low];
+				a[low]=a[mid];
+				a[mid]=temp;
+				mid++;
+				low++;
+			}
+
+			else if(a[mid]==1){
+				mid++;
+			}
+			else if(a[mid]==2){
+				int temp=a[end];
+				a[end]=a[mid];
+				a[mid]=temp;
+				end--;
+			}
+		}
 		for(int i=0;i<n;i++){
-			if(a[i]==maxi){
-				cout<<"-1"<<" ";
-			}
-			else if (a[i]!=maxi){
-				int next = larg(b, a, i);
-				cout<<next<<" ";
-			}
+			cout<<a[i]<<" ";
 		}
+		cout<<endl;
     t--;
   }
 	return 0;
