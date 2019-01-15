@@ -1,27 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-	long t;
-	cin>>t;
-	while(t){
-		long n;
-		cin>>n;
-		long first = 1, second =1;
-		if(n==1){
-			cout<<"1";
-			return 0;
+	long long n1,n2,n3,i,res;
+	cin>>n1>>n2;
+	n3 = min(n1,n2);
+	for(i=1;i<=n3;i++){
+		if(n1%i==0 && n2%i==0){
+			res = i;
 		}
-		else{
-			cout<<first<<" "<<second<<" ";
-			for(long i=0;i<n-2;i++){
-				long long third=first+second;
-				cout<<third<<" ";
-				first = second;
-				second = third;
-			}
-		}
-		t--;
 	}
-
+	cout<<res;
 	return 0;
 }
