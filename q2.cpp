@@ -1,8 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 int tilesc(int n, int m){
-	if(n==1 || m==1){
+	if(n==1){
 		return 1;
+	}
+	if(m==1){
+		return n;
 	}
 	if(n==m){
 		return n;
