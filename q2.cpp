@@ -1,14 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main() {
-	long long n1,n2,n3,i,res;
-	cin>>n1>>n2;
-	n3 = min(n1,n2);
-	for(i=1;i<=n3;i++){
-		if(n1%i==0 && n2%i==0){
-			res = i;
-		}
+int tilesc(int n, int m){
+	if(n==1 || m==1){
+		return 1;
 	}
-	cout<<res;
+	if(n==m){
+		return n;
+	}
+	return tilesc(n-1,m) + tilesc(n-m,m);
+}
+int main() {
+	int t;
+	cin>>t;
+	while(t){
+		int n,m,count;
+		cin>>n>>m;
+		count = tilesc(n,m);
+		cout<<count<<endl;
+		t--;
+	}
 	return 0;
 }

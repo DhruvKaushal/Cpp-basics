@@ -9,7 +9,6 @@ int main()
 	{
 		cin>>arr[i];
 	}
-	cout<<"Sorting array using selection sort...\n";
 	for(i=0; i<size; i++)
 	{
 		for(j=i+1; j<size; j++)
@@ -22,7 +21,6 @@ int main()
 			}
 		}
 	}
-	cout<<"Now the Array after sorting is :\n";
 	for(i=0; i<size; i++)
 	{
 		cout<<arr[i]<<" ";
