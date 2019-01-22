@@ -1,25 +1,34 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-int main() {
-	int t;
+int main()
+{
+	int t,i;
 	cin>>t;
-	while(t){
-		int n;
-		cin>>n;
-		int a[n];
-		for(int i=0;i<n;i++){
-			cin>>a[i];
-		}
-		for(int i=0;i<n-1;i++){
-			if(a[i+1]<a[i]){
-				cout<<a[i+1]<<" ";
-			}
-			else{
-				cout<<"-1"<<" ";
-			}
-		}
-		cout<<"-1"<<endl;
-		t--;
+	for(i=0;i<t;i++)
+	{
+	  int n,j;
+	  cin>>n;
+	  int a[n],b[n],k=0,maxi=-1;
+	  for(j=0;j<n;j++)
+	  {
+	      cin>>a[j];
+	  }
+	  for(j=n-1;j>=0;j--)
+	  {
+
+	      if(a[j]>=maxi)
+	      {
+	        maxi=a[j];
+	        b[k]=maxi;
+	        k++;
+	      }
+	  }
+
+	for(int j=k-1;j>=0;j--)
+	{
+	    cout<<b[j]<<" ";
 	}
-	return 0;
+	cout<<endl;
+	}
+return 0;
 }
