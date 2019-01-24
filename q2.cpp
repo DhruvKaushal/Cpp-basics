@@ -1,34 +1,45 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main()
-{
-	int t,i;
-	cin>>t;
-	for(i=0;i<t;i++)
-	{
-	  int n,j;
-	  cin>>n;
-	  int a[n],b[n],k=0,maxi=-1;
-	  for(j=0;j<n;j++)
-	  {
-	      cin>>a[j];
-	  }
-	  for(j=n-1;j>=0;j--)
-	  {
+struct node{
+	int data;
+	node *next;
+};
 
-	      if(a[j]>=maxi)
-	      {
-	        maxi=a[j];
-	        b[k]=maxi;
-	        k++;
-	      }
-	  }
+struct node *insert(node *x, int d){
+	struct node *temp = (struct node*)malloc(sizeof(node));
+	temp->data = d;
+	temp->next = NULL;
+	if(x==NULL){
+		x = temp;
+	}
+	else{
+		node *y = x;
+		while(y->next!=NULL){
+			y=y->next;
+		}
+		y->next = temp;
+	}
+	return x;
+}
 
-	for(int j=k-1;j>=0;j--)
-	{
-	    cout<<b[j]<<" ";
+struct node *printLL(node *x){
+	if(x==NULL){
+		cout<<"empty";
 	}
-	cout<<endl;
+	else{
+		struct node *temp = x;
+		while(x!=NULL){
+			cout<<x->data<<"-->";
+			x=x->next;
+		}
 	}
-return 0;
+}
+
+int main(){
+	node *head = NULL;
+	head = insert(head, 2);
+	head = insert(head, 3);
+	head = insert(head, 4);
+	printLL(head);
+	return 0;
 }
