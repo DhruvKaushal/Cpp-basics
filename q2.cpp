@@ -22,6 +22,20 @@ struct node *insert(node *x, int d){
 	return x;
 }
 
+struct node *dele(node* h, int x){
+	struct node* temp=head;
+	int n=0;
+	while(n<x){
+		temp=temp->next;
+		n++;
+	}
+	struct node* q=temp->next, y=temp->next->next;
+	temp->next= y;
+	q->next=NULL;
+	free(q);
+	return head;
+}
+
 struct node *printLL(node *x){
 	if(x==NULL){
 		cout<<"empty";
