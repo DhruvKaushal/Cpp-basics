@@ -1,27 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-  int i,j,k,c=0;
-  cin>>i>>j>>k;
-  for(int l=i;l<=j;l++){
-    int n=l;
-    int count = 0;
-    while (n != 0) {
-        n = n / 10;
-        ++count;
+  string s;
+  cin>>s;
+  long int n;
+  cin>>n;
+  long long int x = s.length();
+  long long int a[x];
+  if(s[0]=='a'){
+    a[0]=1;
+  }
+  else{
+    a[0]=0;
+  }
+  for(long long int j=1;j<x;j++){
+    if(s[j]=='a'){
+      a[j]=a[j-1]+1;
     }
-    n =l;
-    int z=0,v=1;
-    while(n){
-      int x = n%10,w=pow(10,count-v);
-      z = z+x*w;
-      n=n/10;
-      v++;
-    }
-    if(abs(l-z)%k==0){
-      c++;
+    else{
+      a[j]=a[j-1];
     }
   }
-  cout<<c;
+  if(a[x-1]==0){
+    cout<<"0";
+    return 0;
+  }
+  else if(n%x==0){
+    cout<<a[x-1]*(n/x);
+  }
+  else{
+    long long int z = n%x;
+    cout<<(a[x-1]*(n/x))+a[z-1];
+  }
   return 0;
 }
