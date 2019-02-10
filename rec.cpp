@@ -1,14 +1,15 @@
 #include<iostream>
 using namespace std;
-int fibo(int a, int b){
-  if(b==1){
-    return a;
-  }
-  return a*fibo(a,b-1);
+int fibo(int a[], int n){
+  
 }
 int main(){
-  int a,b;
-  cin>>a>>b;
-  cout<<fibo(a,b);
+  int n;
+  cin>>n;
+  int a[n];
+  for(int i=0;i<n;i++){
+    cin>>a[i];
+  }
+
   return 0;
 }

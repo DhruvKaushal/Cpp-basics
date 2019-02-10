@@ -1,40 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-
-  int t;
-  cin>>t;
-  while(t){
-    int l,r;
-    cin>>l>>r;
-    int count=0;
-    for(int i=l;i<=r;i++){
-      int x=i;
-      if(i==0){
-        continue;
-      }
-      else if(i<0){
-        x=(~x)+1;
-        while(x>0){
-          if((x&1)==1){
-            count++;
-          }
-          x=(x>>1);
-        }
-        count=32-count;
-      }
-      else if(i>0){
-        while(x>0){
-          if((x&1)==1){
-            count++;
-          }
-          x=(x>>1);
-        }
-      }
-
+  int i,j,k,c=0;
+  cin>>i>>j>>k;
+  for(int l=i;l<=j;l++){
+    int n=l;
+    int count = 0;
+    while (n != 0) {
+        n = n / 10;
+        ++count;
     }
-    cout<<count<<endl;
-    t--;
+    n =l;
+    int z=0,v=1;
+    while(n){
+      int x = n%10,w=pow(10,count-v);
+      z = z+x*w;
+      n=n/10;
+      v++;
+    }
+    if(abs(l-z)%k==0){
+      c++;
+    }
   }
+  cout<<c;
   return 0;
 }
