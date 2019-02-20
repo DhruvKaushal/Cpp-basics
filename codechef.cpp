@@ -4,11 +4,12 @@ int main(){
   int t;
   cin>>t;
   while(t){
-    int n,k,count=0;
+    int n,x=1;
     cin>>n;
-    n=(n<<4)|(n>>4);
-    int a = (int)(n.to_ulong());
-    cout<<a<<endl;
+    while(x<n){
+      x=(x<<1);
+    }
+    cout<<x<<endl;
     t--;
   }
   return 0;
