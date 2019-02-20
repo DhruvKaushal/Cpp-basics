@@ -1,0 +1,2 @@
+C:\Users\Hp\Desktop\C++\codechef.cpp: In function 'int main()':
+C:\Users\Hp\Desktop\C++\codechef.cpp:10:21: error: request for member 'to_ulong' in 'n', which is of non-class type 'int'
