@@ -1,35 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-  int t;
-  cin>>t;
-  while(t){
-    int n;
-    cin>>n;
-    int a[n],b[n],m=0;
-    for(int i=0;i<n;i++){
-      cin>>a[i];
+
+
+  for(int i=1;i<=15;i++){
+    string s="";
+    if(i%3==0){
+      s+="Fizz";
     }
-    sort(a,a+n);
-    b[0]=1;
-    for(int i=1;i<n;i++){
-      if((a[i]-a[i-1])==1){
-        b[i] = b[i-1] + 1;
-      }
-      else{
-        b[i] = 1;
-      }
+    if(i%5==0){
+      s+="Buzz";
     }
-    for(int i=0;i<n;i++){
-      cout<<b[i]<<" ";
+    if(s==""){
+      cout<<i<<endl;
     }
-    for(int i=0;i<n;i++){
-      if(m<b[i]){
-        m=b[i];
-      }
+    else{
+      cout<<s<<endl;
     }
-    cout<<m<<endl;
-    t--;
   }
   return 0;
 }
