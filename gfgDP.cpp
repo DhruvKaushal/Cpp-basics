@@ -1,22 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int main(){
-
-
-  for(int i=1;i<=15;i++){
-    string s="";
-    if(i%3==0){
-      s+="Fizz";
+  int t;
+  cin>>t;
+  while(t){
+    int n,m,mod=pow(10,9)+7;
+    cin>>n>>m;
+    int a[n][m];
+    for(int i=0;i<n;i++){
+      a[0][i]=1;
+      a[i][0]=1;
     }
-    if(i%5==0){
-      s+="Buzz";
+    for(int i=1;i<n;i++){
+      for(int j=1;j<m;j++){
+        a[i][j] = (a[i-1][j] + a[i][j-1])%mod;
+      }
     }
-    if(s==""){
-      cout<<i<<endl;
-    }
-    else{
-      cout<<s<<endl;
-    }
+    cout<<a[n-1][m-1]<<endl;
+    t--;
   }
   return 0;
 }
