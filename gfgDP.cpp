@@ -1,58 +1,114 @@
+{
 #include <bits/stdc++.h>
 using namespace std;
-int findLongestConseqSubseq(int [], int );
+vector<int> threeWayPartition(vector<int> A,
+                int lowVal, int highVal);
 int main() {
+
 	int t;
 	cin>>t;
-
 	while(t--)
 	{
-		int n;
-		cin>>n;
 
-		int a[n];
+		int N;
+		cin>>N;
+		vector<int> A(N);
+		int hash[1000001];
+		memset(hash,0,sizeof hash);
 
-		// input array elements
-		for(int i=0;i<n;i++)
-		    cin>>a[i];
+		for(int i=0;i<N;i++){
+		cin>>A[i];
+		hash[A[i]]++;
+		}
 
-		cout<< findLongestConseqSubseq(a, n)<<endl;
+		int n,m;
+		cin>>n>>m;
+		vector<int> B(A.size());
+		for(int i=0;i<A.size();i++)
+		{
+			B[i]=A[i];
+		}
+   int k1=0,k2=0,k3=0;
+        int kk1=0;int kk2=0;int kk3=0;
+        for(int i=0;i<B.size();i++)
+        {
+        	if(B[i]>m)
+        	{
+        		k3++;
+        	}else if(B[i]<=m and B[i]>=n)
+        	{
+        		k2++;
+        	}else if(B[i]<m)
+        	k1++;
+        }
+
+		vector<int> Res = threeWayPartition(A,
+                n,m);
+
+      	for(int i=0;i<k1;i++)
+      	{
+      		if(Res[i]<m)
+      		kk1++;
+      	}
+
+      	for(int i=k1;i<k1+k2;i++)
+      	{
+
+      		if(Res[i]<=m and Res[i]>=n)
+      		kk2++;
+
+      	}
+
+      	for(int i=k1+k2;i<k1+k2+k3;i++)
+      	{
+      		if(Res[i]>m)
+      		kk3++;
+      	}
+      	bool ok = 0;
+      	if(k1==kk1 and k2 ==kk2 and k3 == kk3)
+      	ok = 1;
+	for(int i=0;i<Res.size();i++)
+      		hash[Res[i]]--;
+
+      	for(int i=0;i<Res.size();i++)
+      	if(hash[Res[i]]!=0)
+      	ok=0;
+
+		if(ok)
+		cout<<1<<endl;
+		else
+		cout<<0<<endl;
 
 	}
+	// your code goes here
 	return 0;
 }
-
+}
 
 /*Please note that it's Function problem i.e.
 you need to write your solution in the form of Function(s) only.
 Driver Code to call/invoke your function is mentioned above.*/
 
-
-// function to find longest consecutive subsequence
-// n : size of array
-// arr[] : input array
-int findLongestConseqSubseq(int arr[], int n)
+/*The function should return the modified array
+as specified in the problem statement */
+vector<int> threeWayPartition(vector<int> A, int a, int b)
 {
-  int b[n];
-  b[0] = 1;
-  sort(arr,arr+n);
-  for(int i=1;i<n;i++){
-    if(arr[i]-arr[i-1]==1){
-      b[i] = b[i-1]+1;
+    int s=0,e=A.size()-1,m=0;
+    while(m<e){
+      if(A[m]<a){
+        swap(A[m],A[s]);
+        s++;
+        m++;
+      }
+      else if(A[m]>b){
+        swap(A[m],A[e]);
+        m++;
+        e--;
+      }
+      else{
+        m++;
+      }
     }
-    else if(arr[i]==arr[i-1]){
-      b[i]=b[i-1];
-    }
-    else{
-      b[i]=1;
-    }
-  }
-  int m = 0;
-  for(int i=0;i<n;i++){
-    if(b[i]>m){
-      m=b[i];
-    }
-  }
-  return m;
-    //Your code here
+    return A;
+     //Your code here
 }

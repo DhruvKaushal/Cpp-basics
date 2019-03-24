@@ -1,0 +1,9 @@
+C:\Users\Hp\Desktop\C++\gfgDP.cpp:1:1: error: expected unqualified-id before '{' token
+In file included from c:\mingw\bin\../lib/gcc/mingw32/4.5.2/include/c++/new:42:0,
+                 from c:\mingw\bin\../lib/gcc/mingw32/4.5.2/include/c++/bits/stl_construct.h:60,
+                 from c:\mingw\bin\../lib/gcc/mingw32/4.5.2/include/c++/bits/stl_tempbuf.h:61,
+                 from c:\mingw\bin\../lib/gcc/mingw32/4.5.2/include/c++/bits/stl_algo.h:63,
+                 from c:\mingw\bin\../lib/gcc/mingw32/4.5.2/include/c++/algorithm:63,
+                 from c:\mingw\bin\../lib/gcc/mingw32/4.5.2/include/c++/mingw32/bits/stdc++.h:64,
+                 from C:\Users\Hp\Desktop\C++\gfgDP.cpp:2:
+c:\mingw\bin\../lib/gcc/mingw32/4.5.2/include/c++/exception:37:37: error: expected declaration before end of line
