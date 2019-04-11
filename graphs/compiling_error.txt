@@ -1,0 +1,6 @@
+C:\Users\Hp\Desktop\C++\graphs\AdjacencyList.cpp: In member function 'void graph::printList()':
+C:\Users\Hp\Desktop\C++\graphs\AdjacencyList.cpp:21:21: error: expected initializer before ':' token
+C:\Users\Hp\Desktop\C++\graphs\AdjacencyList.cpp:25:5: error: expected primary-expression before '}' token
+C:\Users\Hp\Desktop\C++\graphs\AdjacencyList.cpp:25:5: error: expected ')' before '}' token
+C:\Users\Hp\Desktop\C++\graphs\AdjacencyList.cpp:25:5: error: expected primary-expression before '}' token
+C:\Users\Hp\Desktop\C++\graphs\AdjacencyList.cpp:25:5: error: expected ';' before '}' token

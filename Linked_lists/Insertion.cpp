@@ -42,7 +42,24 @@ void printnodes(node *h){
   }
 }
 
-void combine()
+node *merge(node *a, node *b){              //merge 2 sorted LL
+  if(a==NULL){
+    return b;
+  }
+  else if(b==NULL){
+    return a;
+  }
+  node *c;
+  if(a->data>b->data){
+    c = b;
+    c->next =  merge(a, b->next);
+  }
+  else if(a->data<b->data){
+    c = a;
+    c->next = merge(a->next, b);
+  }
+  return c;
+}
 
 int main(){
   int t,x;
@@ -59,9 +76,11 @@ int main(){
       cin>>x;
       insertatend(head2, x);
     }
+    head3 = merge(head1, head2);
+    printnodes(head3);
+    cout<<endl;
     t--;
   }
-  combine(head1, head2, head3);
-  printnodes(head1);
+
   return 0;
 }
